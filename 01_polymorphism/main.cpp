@@ -11,7 +11,7 @@ which is maintained and created by the creator Bjarne Stroustrup itself)
 at 12.2.6, 13.6.1, D&E 2.9:
 
 > Polymorphism means,
-providing a single interface to entities of different types. 
+providing a single interface (methods) to entities of different types. 
 Virtual functions provide dynamic (run-time) polymorphism through an interface provided by a base class. 
 Overloaded functions and templates provide static (compile-time) polymorphism.
 
@@ -36,17 +36,15 @@ C++ compilers typically implement dynamic dispatch with a data structure called 
 that defines the message-to-method mapping for a given class (C++ as such has no notion of a vtable). 
 Instances of that type will then store a pointer to this table as part of their instance data. 
 
-Dynamic dispatch should not be confused with dynamic (late) binding.
-Even though, we learned that a polymorphic object resolves the method to be called (meaning
-if it's a pointer to a base class, resolving to the actual dynamic type) by dynamic binding,
-the principle of early and late binding is something different (in terms of definition).
-
 Important for the exam, C++ applies (run-time) polymorphism through virtual methods. At run-time the right method is
-dispatched by dynamic dispatch / binding.
+dispatched by dynamic dispatch / (late) binding.
 
 > References:
 Mechanism of polymorphism (compile-time, run-time, ...), terminology:
     https://stackoverflow.com/a/5854862
+
+Polymorphism Wikipedia
+    https://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29#Subtyping
 
 Static, dynamic (and multiple, not necessary though for this chapter) dispatch:
     https://softwareengineering.stackexchange.com/a/224689
@@ -74,11 +72,11 @@ struct Animal {
 };
 
 struct Lemming : public Animal {
-    virtual void doSomething() { std::cout << "🐀  " << "Being a cute lemming" << std::endl; }
+    virtual void doSomething() override { std::cout << "🐀  " << "Being a cute lemming" << std::endl; }
 };
 
 struct Bear : public Animal {
-    virtual void doSomething() { std::cout << "🐻  " << "Being a strong protecting bear" << std::endl; }
+    virtual void doSomething() override { std::cout << "🐻  " << "Being a strong protecting bear" << std::endl; }
 };
 
 void callDoSomething(Animal *a) {
