@@ -12,8 +12,7 @@ polymorphism. Unlike single dispatch where upon invocation the runtime type of
 a single underlying object determines which function is called / dispatched, multiple dispatch
 uses the runtime type of multiple objects for dynamic dispatching (late binding).
 
-Multiple Dispatch is not natively implemented in C++ but can be simulated with
-several implementations and pattern like the visitor pattern.
+Multiple Dispatch is not natively implemented in C++.
 
 > References:
 A guide to multiple dispatch with a brilliant explanation of single dispatch and runtime polymorphism
