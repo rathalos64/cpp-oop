@@ -98,5 +98,9 @@ int main() {
     callDoSomething(animal);
     callDoSomething(new Bear{});
 
+    Lemming *lemming = new Lemming{};
+    // upcast to Animal * while being passed to callDoSomething();
+    callDoSomething(lemming);
+
     // side note: animal is a lvalue and new Bear{} and rvalue
 }
